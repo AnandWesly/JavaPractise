@@ -3,10 +3,28 @@ package com.anand.practise;
 public class FindClosetNumber {
 
 	public static void main(String[] args) {
-		int arr[] = { -5,2,1,9,8,1};
-		int target = -4;
-		//System.out.println(findClosest(arr, target));
-		System.out.println(closest1(0,arr));
+		int arr[] = { 6, 8 ,-5,5, 1, 2};
+		int target = 4;
+	//	System.out.println(findClosest(arr, target));
+		System.out.println(findClosestInUnsortedArr(arr, target));
+
+		// System.out.println(findClosestEase(arr, target));
+		// Arrays.sort(a);
+	}
+
+	// Returns element closest to target in arr[]
+	public static int findClosestInUnsortedArr(int arr[], int target) {
+		int smallestDiff = Math.abs(target - arr[0]);
+		int closest = 0; // index of the current closest number
+		
+		for (int i = 1; i < arr.length; i++) {
+			int currentDiff = Math.abs(target - arr[i]);
+			if (currentDiff < smallestDiff) {
+				smallestDiff = currentDiff;
+				closest = i;
+			}
+		}
+		return arr[closest];
 	}
 
 	// Returns element closest to target in arr[]
@@ -65,24 +83,4 @@ public class FindClosetNumber {
 			return val1;
 	}
 
-	public static int closest2(int find, int... values) {
-		int closest = values[0];
-		int distance = Math.abs(closest - find);
-		for (int i : values) {
-			int distanceI = Math.abs(i - find);
-			if (distance > distanceI) {
-				closest = i;
-				distance = distanceI;
-			}
-		}
-		return closest;
-	}
-
-	public static int closest1(int find, int... values) {
-		int closest = values[0];
-		for (int i : values)
-			if (Math.abs(closest - find) > Math.abs(i - find))
-				closest = i;
-		return closest;
-	}
 }

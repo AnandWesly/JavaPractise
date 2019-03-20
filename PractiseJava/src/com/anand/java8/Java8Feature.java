@@ -9,7 +9,6 @@ public class Java8Feature implements Java8Inter{
 
 		List<String> alist = new ArrayList<>();
 		
-		alist.add("CEASE");
 		alist.add("ADD");
 		alist.add("UPDATE");
 

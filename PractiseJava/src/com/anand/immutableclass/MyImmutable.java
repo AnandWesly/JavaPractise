@@ -4,6 +4,7 @@ import java.util.Date;
 
 final class MyImmutable {
 	
+	private static final int i =0;
 	private final int age;
 	private final Date dob;
 	
